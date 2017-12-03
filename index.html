@@ -3,14 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>YoutubeLiveCommentViewer</title>
+    <link rel="stylesheet" href="assets/css/common.css">
 </head>
 <body>
     <div class="main_wrap">
-        <input type="text" name="" value="">
-        <p>{{ hello }}</p>
-    </div>
 
-    <script src="assets/vue.js"></script>
-    <script src="assets/vue_common.js"></script>
+      <div class="row">
+        <p class="label1">放送URL</p>
+        <input type="text" id="url_text" placeholder="放送URLを入力してください">
+        <button type="button" name="button" id="link_btn">接続</button>
+      </div>
+
+      <div id="comment_wrap">
+        <ul id="comment_list">
+            <li id="list_title" class="comment">
+              <span class="comment_icon"></span>
+              <span class="comment_name">ユーザー名</span>
+              <span class="comment_body">コメント</span>
+            </li>
+            <li class="comment">
+              <span class="comment_icon"><img src="https://yt3.ggpht.com/--kWMHqir3l8/AAAAAAAAAAI/AAAAAAAAAAA/2kSbV47QmzY/s32-c-k-no-mo-rj-c0xffffff/photo.jpg" alt=""></span>
+              <span class="comment_name">なつた<span class="comment_name2">(本名)</span></span>
+              <span class="comment_body">もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。</span>
+              <span class="comment_mode"><img src="assets/img/mode_icon.svg" alt=""></span>
+            </li>
+            <li class="comment" v-for="i in 1000">
+              <span class="comment_icon"><img src="https://yt3.ggpht.com/--kWMHqir3l8/AAAAAAAAAAI/AAAAAAAAAAA/2kSbV47QmzY/s32-c-k-no-mo-rj-c0xffffff/photo.jpg" alt=""></span>
+              <span class="comment_name">なつた<span class="comment_name2">(本名)</span></span>
+              <span class="comment_body">もし次できるならやりたいです。</span>
+              <span class="comment_mode"></span>
+            </li>
+        </ul>
+      </div>
+
+
+    </div>
+    <script src="assets/js/vue.js"></script>
+    <script src="assets/js/vue_common.js"></script>
 </body>
 </html>
