@@ -1,0 +1,100 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #eaeaea;
+  font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.label1 {
+  width: 6em;
+  margin: 0;
+}
+
+#url_text {
+  flex: 5;
+  padding: 7px;
+}
+#link_btn {
+  width: 100px;
+}
+
+#comment_wrap {
+  margin: 10px;
+  margin-top: 0;
+  box-sizing: border-box;
+  background: #fff;
+  height: 700px;
+}
+#comment_list {
+  padding-bottom: 10px;
+  padding-left: 0;
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+  margin-top: 0;
+  height: 100%;
+  overflow: scroll;
+  box-sizing: border-box;
+}
+
+#list_title {
+  background: #7b7b7b;
+  color: #fff;
+  position: sticky;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+#list_title .comment_icon {
+  padding: 0;
+  padding-right: 10px;
+}
+.comment {
+  display: flex;
+  padding: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 15px;
+  background: #fff;
+}
+.comment:hover {
+  background: #ededed;
+}
+.comment:last-child {
+  border: none;
+}
+
+.comment_icon {
+  width: 32px;
+  padding: 5px;
+  border-right: 1px solid #ccc;
+}
+.comment_name {
+  width: 100px;
+  display: block;
+  padding-left: 10px;
+  border-right: 1px solid #ccc;
+}
+.comment_name2 {
+  color: #9a9a9a;
+  font-size: 14px;
+  width: 100%;
+  display: block;
+}
+.comment_body {
+  flex: 1;
+  padding-left: 10px;
+}
+.comment_mode {
+  width: 20px;
+  padding: 5px;
+}
+.comment_mode img {
+  width: 100%;
+}
