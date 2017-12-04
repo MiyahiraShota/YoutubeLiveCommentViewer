@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="assets/css/common.css">
 </head>
 <body>
+    <div class="background"></div>
     <div class="main_wrap">
 
       <div class="row">
-        <p class="label1">放送URL</p>
         <input type="text" id="url_text" placeholder="放送URLを入力してください">
-        <button type="button" name="button" id="link_btn">接続</button>
+        <button type="button" name="button" id="link_btn"></button>
       </div>
 
       <div id="comment_wrap">
@@ -36,6 +36,12 @@
         </ul>
       </div>
 
+      <div class="comment_box">
+        <textarea name="name" placeholder="コメントを入力してください"></textarea>
+        <div class="comment_box_toolbar">
+          <button type="button" name="button" class="send_btn"></button>
+        </div>
+      </div>
 
     </div>
     <script src="assets/js/vue.js"></script>

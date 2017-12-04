@@ -2,14 +2,38 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: #eaeaea;
   font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+  height: 100%;
+}
+
+.background {
+  display: block;
+
+  transform: rotate(-10deg);
+  width: 200%;
+  height: 75%;
+  margin-top: -40%;
+  margin-left: -40%;
+
+  background: #f27f5a;
+  background: -moz-linear-gradient(right, #f27f5a 0%, #ed5063 100%);
+  background: -webkit-gradient(linear, right top, right bottom, color-stop(0%,#f27f5a), color-stop(100%,#ed5063));
+  background: -webkit-linear-gradient(right, #f27f5a 0%, #ed5063 100%);
+  background: -o-linear-gradient(right, #f27f5a 0%, #ed5063 100%);
+  background: -ms-linear-gradient(right, #f27f5a 0%, #ed5063 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f27f5a', endColorstr='#ed5063', GradientType=1);
+  background: linear-gradient(to right, #f27f5a 0%, #ed5063 100%);
+}
+
+.main_wrap {
+  position: absolute;
+  top: 0;
 }
 
 .row {
   display: flex;
   width: 100%;
-  padding: 10px;
+  padding: 25px;
   box-sizing: border-box;
 }
 
@@ -20,18 +44,53 @@ body {
 
 #url_text {
   flex: 5;
-  padding: 7px;
+  padding: 10px 15px;
+  border-radius: 10px 0 0 10px;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  border-right: none;
+  background: rgba(255,255,255,0.4);
+  color: #fff;
 }
+#url_text::-webkit-input-placeholder {
+    color: #fff;
+    font-weight: normal;
+}
+#url_text:-ms-input-placeholder {
+    color: #fff;
+    font-weight: normal;
+}
+#url_text::-moz-placeholder {
+    color: #fff;
+    font-weight: normal;
+}
+
 #link_btn {
-  width: 100px;
+  width: 50px;
+  border-radius: 0 10px 10px 0;
+  border: none;
+  background: url('../img/search.svg') rgba(0,0,0,0.1);
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 10px;
+  outline: none;
+}
+#link_btn:active {
+  background: url('../img/search.svg') rgba(0,0,0,0.3);
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #comment_wrap {
-  margin: 10px;
+  margin: 25px;
   margin-top: 0;
   box-sizing: border-box;
-  background: #fff;
+  background: rgba(255, 255, 255, 1);
   height: 700px;
+  border-radius: 20px 20px 0 0;
 }
 #comment_list {
   padding-bottom: 10px;
@@ -42,6 +101,7 @@ body {
   height: 100%;
   overflow: scroll;
   box-sizing: border-box;
+  border: none;
 }
 
 #list_title {
@@ -51,17 +111,33 @@ body {
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
+  background: #d85959;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+  font-size: 13px;
+  box-shadow: 0 2px 30px #ff8888;
+  border: none;
 }
 #list_title .comment_icon {
   padding: 0;
   padding-right: 10px;
+}
+#list_title .comment {
+  display: flex;
+  padding: 0;
+  border-bottom: 1px solid #fff;
+  padding: 10px 15px;
+}
+#list_title .comment_icon {
+  width: 32px;
+  padding: 5px;
+  border-right: 1px solid #fff;
 }
 .comment {
   display: flex;
   padding: 0;
   border-bottom: 1px solid #ccc;
   padding: 10px 15px;
-  background: #fff;
 }
 .comment:hover {
   background: #ededed;
@@ -97,4 +173,43 @@ body {
 }
 .comment_mode img {
   width: 100%;
+}
+
+.comment_box {
+  margin: 25px;
+  border: solid 1px #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.comment_box textarea {
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 16px;
+  padding: 15px;
+  box-sizing: border-box;
+  resize: none;
+}
+.send_btn {
+  width: 100%;
+  border: none;
+  padding: 15px;
+  outline: none;
+  cursor: pointer;
+
+  background: url(../img/send.svg) #f27f5a;
+  background: url(../img/send.svg) -moz-linear-gradient(right, #f27f5a 0%, #ed5063 100%);
+  background: url(../img/send.svg) -webkit-gradient(linear, right top, right bottom, color-stop(0%,#f27f5a), color-stop(100%,#ed5063));
+  background: url(../img/send.svg) -webkit-linear-gradient(right, #f27f5a 0%, #ed5063 100%);
+  background: url(../img/send.svg) -o-linear-gradient(right, #f27f5a 0%, #ed5063 100%);
+  background: url(../img/send.svg) -ms-linear-gradient(right, #f27f5a 0%, #ed5063 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f27f5a', endColorstr='#ed5063', GradientType=1);
+  background: url(../img/send.svg) linear-gradient(to right, #f27f5a 0%, #ed5063 100%);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.send_btn:active {
+  opacity: 0.8;
 }
