@@ -4,10 +4,28 @@ body {
   padding: 0;
   font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
   height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#header {
+  display: block;
+  background: rgba(0,0,0,0.05);
+  height: 25px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+
+  -webkit-app-region: drag; /* ドラッグ可能に */
+  -webkit-user-select: none; /* ドラッグはテキスト選択と競合するので禁止 */
 }
 
 .background {
   display: block;
+
+  -webkit-app-region: drag; /* ドラッグ可能に */
+  -webkit-user-select: none; /* ドラッグはテキスト選択と競合するので禁止 */
 
   transform: rotate(-10deg);
   width: 200%;
@@ -34,6 +52,7 @@ body {
   display: flex;
   width: 100%;
   padding: 25px;
+  margin-top: 20px;
   box-sizing: border-box;
 }
 
