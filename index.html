@@ -11,8 +11,8 @@
     <div class="main_wrap">
 
       <div class="row">
-        <input type="text" id="url_text" placeholder="放送URLを入力してください">
-        <button type="button" name="button" id="link_btn"></button>
+        <input type="text" id="url_text" placeholder="放送URLを入力してください" v-model.video_id="video_id">
+        <button type="button" name="button" id="link_btn" v-on:click="connection"></button>
       </div>
 
       <div id="comment_wrap">
@@ -46,6 +46,6 @@
 
     </div>
     <script src="assets/js/vue.js"></script>
-    <script src="assets/js/vue_common.js"></script>
+    <script src="assets/js/compile/vue_common.js"></script>
 </body>
 </html>
