@@ -20,7 +20,11 @@ app.on('window-all-closed', function() {
 // Electronの初期化完了後に実行
 app.on('ready', function() {
   // メイン画面の表示。ウィンドウの幅、高さを指定できる
-  mainWindow = new BrowserWindow({width: 600, height: 850});
+  mainWindow = new BrowserWindow({
+    width: 600,
+    height: 850,
+    'titleBarStyle': 'hidden',
+  });
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   // ウィンドウが閉じられたらアプリも終了
