@@ -170,6 +170,9 @@ body {
   padding: 5px;
   border-right: 1px solid #ccc;
 }
+.comment_icon img {
+    width: 100%;
+}
 .comment_name {
   width: 100px;
   display: block;

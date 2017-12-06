@@ -14,7 +14,7 @@
         <input type="text" id="url_text" placeholder="放送URLを入力してください" v-model.video_id="video_id">
         <button type="button" name="button" id="link_btn" v-on:click="connection"></button>
       </div>
-
+      <!-- <p>視聴者数：{{ concurrentViewers }}</p> -->
       <div id="comment_wrap">
         <ul id="comment_list">
             <li id="list_title" class="comment">
@@ -22,16 +22,10 @@
               <span class="comment_name">ユーザー名</span>
               <span class="comment_body">コメント</span>
             </li>
-            <li class="comment">
-              <span class="comment_icon"><img src="https://yt3.ggpht.com/--kWMHqir3l8/AAAAAAAAAAI/AAAAAAAAAAA/2kSbV47QmzY/s32-c-k-no-mo-rj-c0xffffff/photo.jpg" alt=""></span>
-              <span class="comment_name">なつた<span class="comment_name2">(本名)</span></span>
-              <span class="comment_body">もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。もし次できるならやりたいです。</span>
-              <span class="comment_mode"><img src="assets/img/mode_icon.svg" alt=""></span>
-            </li>
-            <li class="comment" v-for="i in 1000">
-              <span class="comment_icon"><img src="https://yt3.ggpht.com/--kWMHqir3l8/AAAAAAAAAAI/AAAAAAAAAAA/2kSbV47QmzY/s32-c-k-no-mo-rj-c0xffffff/photo.jpg" alt=""></span>
-              <span class="comment_name">なつた<span class="comment_name2">(本名)</span></span>
-              <span class="comment_body">もし次できるならやりたいです。</span>
+            <li class="comment" v-for="chat in liveChatData">
+              <span class="comment_icon"><img :src="chat.authorDetails.profileImageUrl" alt=""></span>
+              <span class="comment_name">{{ chat.authorDetails.displayName }}<span class="comment_name2"></span></span>
+              <span class="comment_body">{{ chat.snippet.displayMessage }}</span>
               <span class="comment_mode"></span>
             </li>
         </ul>
