@@ -8,13 +8,14 @@ new Vue({
         video_id: '',
         concurrentViewers: 0,
         activeLiveChatId: null,
-        liveChatData: []
+        liveChatData: [],
+        nextPageToken: null
     },
     created () {
         this.hello = 'okokokok'
     },
     methods: {
-        cconnection: function () {
+        connection: function () {
             let url = "https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id=" + this.video_id + "&key=" + this.api_key;
             let $this = this;
             axios.get(url, {
@@ -22,9 +23,9 @@ new Vue({
             })
             .then(function (response) {
                 if (response.data.items[0]) {
+                    $this.nextPageToken = null;
                     $this.concurrentViewers = response.data.items[0].liveStreamingDetails.concurrentViewers;
                     $this.activeLiveChatId = response.data.items[0].liveStreamingDetails.activeLiveChatId;
-
                     $this.chatLoad();
                 }
             })
@@ -33,21 +34,28 @@ new Vue({
             })
         },
         chatLoad: function () {
-            let url = "https://www.googleapis.com/youtube/v3/liveChat/messages?part=snippet,authorDetails&liveChatId=" + this.activeLiveChatId + "&key=" + this.api_key;
+            var url = "https://www.googleapis.com/youtube/v3/liveChat/messages?part=snippet,authorDetails&liveChatId=" + this.activeLiveChatId + "&key=" + this.api_key;
+
+            if (this.nextPageToken) {
+                url = url + '&pageToken=' + this.nextPageToken;
+            }
             console.log(url);
 
             let $this = this;
-            axios.get(url, {
-                timeout: 30000
-            })
+            axios.get(url)
             .then(function (response) {
                 if (response.data.items) {
-                    $this.liveChatData = response.data.items;
+                    $this.liveChatData = $this.liveChatData.concat(response.data.items);
+                    $this.nextPageToken = response.data.nextPageToken;
+                    console.log(response.data.items);
+                    setTimeout(function () {
+                        $this.chatLoad();
+                    }, (response.data.pollingIntervalMillis+500));
                 }
             })
             .catch(function (error) {
                 console.log(error);
-            })
+            });
         }
     }
 })
